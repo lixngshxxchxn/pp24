@@ -11,6 +11,7 @@
     body {
         margin: 0;
         font-family: 'NanumSquareNeo', 'sans-serif';
+        overflow-x: hidden;
     }
 
 
@@ -45,6 +46,8 @@
 
     .logo, .app-icon {
         margin-right: 10px;
+        height: 40px;
+        width: auto;
     }
 
     .nav-links {
@@ -162,11 +165,32 @@
         transform: translateY(0);
     }
 
-    .usage-photo {
-        width: 673px;
-        height: 293px;
-        margin-right: 20px;
+    #section2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 900px;
+        padding-top: 50px;
     }
+
+    .image-text-container {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .image-text-container:nth-child(odd) {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .image-text-container:nth-child(even) {
+        justify-content: flex-end;
+        text-align: right;
+    }
+
 
     #section3 {
         height: 900px;
@@ -239,7 +263,10 @@
     .happy-section {
         display: flex;
         align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
     }
+
 
     .happy-image {
         width: 600px;
@@ -251,44 +278,60 @@
         margin-left: 30px;
     }
 
-    .cooperation-section {
-        text-align: center;
-        margin-top: 30px;
-    }
-
     .cooperation-section p {
         font-size: 25px;
         margin-bottom: 10px;
     }
 
-    .continuous-image {
-        width: 2400px;
-        height: 100px;
-        animation: scroll 20s linear infinite;
+    .cooperation-section {
+        text-align: center;
+        margin-top: 30px;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
     }
 
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
+    /*.continuous-image {*/
+    /*    width: 2400px;*/
+    /*    height: 100px;*/
+    /*    animation: scroll 15s linear infinite;*/
+    /*}*/
+
+    /*@keyframes scroll {*/
+    /*    0% { transform: translateX(0); }*/
+    /*    100% { transform: translateX(-2400px); }*/
+    /*}*/
+
+    #section5 {
+        display: flex;
+        flex-direction: column;
+        height: 900px;
     }
 
     .challenge-text {
         font-size: 35px;
         text-align: center;
-        margin-bottom: 15px;
+        padding-top: 300px;
     }
 
     .challenge-images {
         display: flex;
         justify-content: center;
-        align-items: center;
+    }
+
+    .app-image{
+        width: 150px;
+        height: auto;
     }
 
     .challenge-image {
-        margin: 0 15px;
+        margin: 15px 15px;
     }
 
     .small-images {
+        margin-left: 50px;
+        width: 80px;
+        height: 80px;
         display: flex;
         flex-direction: column;
     }
@@ -418,8 +461,8 @@
 <header id="header">
     <div class="header-content">
         <div class="logo-section">
-            <img src="appicon.png" alt="App Icon" class="app-icon">
-            <img src="logo.png" alt="Logo" class="logo">
+            <img src="img/app.png" alt="App Icon" class="app-icon">
+            <img src="img/logo.png" alt="Logo" class="logo">
         </div>
         <ul class="nav-links">
             <li><a href="#section1">우리 동네 놀이터</a></li>
@@ -451,12 +494,12 @@
 
 <section id="section2">
     <div class="image-text-container">
-        <img src="photo3.png" alt="Usage 1" class="usage-photo">
+        <img src="img/p1.png" alt="Usage 1" class="usage-photo">
         <div class="text">Usage explanation 1</div>
     </div>
     <div class="image-text-container">
         <div class="text">Usage explanation 2</div>
-        <img src="photo4.png" alt="Usage 2" class="usage-photo">
+        <img src="img/p2.png" alt="Usage 2" class="usage-photo">
     </div>
 </section>
 
@@ -502,28 +545,29 @@
 
 <section id="section4">
     <div class="happy-section">
-        <img src="happy.png" alt="Happy Image" class="happy-image">
+        <div class="happy-image">
+            <img src="img/happy.png" alt="Happy Image">
+        </div>
         <p class="happy-text">더 많은 사람들에게 행복을 전할 수 있도록 노력하고 있어요!</p>
     </div>
     <div class="cooperation-section">
         <p>협력을 기다립니다</p>
-        <img src="cau.png" alt="Continuous Image" class="continuous-image">
+        <img src="img/cau.png" alt="Continuous Image" class="continuous-image">
     </div>
 </section>
 
-<!-- 놀러 가요! Section -->
 <section id="section5">
     <p class="challenge-text">당신의 도전은 여기서부터 시작!</p>
     <div class="challenge-images">
+        <div class="app-image">
+            <img src="img/app.png" alt="App Icon">
+        </div>
         <div class="small-images">
-            <img src="appicon.png" alt="App Icon" class="challenge-image">
-            <img src="apst1.png" alt="Small Image 1" class="challenge-image">
-            <img src="apst2.png" alt="Small Image 2" class="challenge-image">
+            <img src="img/aps1.png" alt="Small Image 1" class="challenge-image">
+            <img src="img/aps2.png" alt="Small Image 2" class="challenge-image">
         </div>
     </div>
 </section>
-
-
 
 <footer>
     <div class="foot">
