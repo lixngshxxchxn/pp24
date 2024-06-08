@@ -3,19 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>loading</title>
-<style>
-
-</style>
+    <style>
+        #load {
+            margin-top: 5.5rem;
+        }
+        .step {
+            margin: 0 auto;
+            width: 500px;
+            height: 500px;
+            background: url("img/load_step.png")no-repeat;
+            background-size:2000px;
+            animation: move .5s steps(4,end) infinite;
+        }
+        @keyframes move {
+            0%{
+                background-position-x:0;
+            }
+            100%{
+                background-position-x:-2000px;
+            }
+        }
+        .loading-bar {
+            margin: 0 auto;
+            width: 50%;
+            height: 10px;
+            border-radius: 50px;
+            background-color: #ecf1ef;
+            z-index: 1;
+        }
+        .bar {
+            width: 0%;
+            height: 10px;
+            background-color: #d96f6f;
+        }
+    </style>
 </head>
 <body>
 
 <div id="load">
     <div class="step"></div>
-    <div class="loading-bar"></div>
+    <div class="loading-bar">
+        <div class="bar"></div>
+    </div>
 </div>
 
-<script>
-
+<script >
+    const loading_page = document.getElementById("load");
+    window.onload = function(){
+        loading_page.style.display = 'none';
+    }
 </script>
 </body>
 </html>
