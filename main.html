@@ -13,7 +13,7 @@
         font-family: 'NanumSquareNeo', 'sans-serif';
         overflow-x: hidden;
     }
-
+    /*로딩페이지 추가css*/
     #load {
         z-index: 2000;
     }
@@ -459,6 +459,8 @@
 </style>
 </head>
 <body>
+<!-- load_page가 생성될 부분-->
+<div id="load"></div>
 <!-- Header -->
 <header id="header">
     <div class="header-content">
@@ -584,10 +586,26 @@
         </div>
     </div>
 </footer>
-
+    
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!--jquery로 load.html가져오기 부분-->
+    
 <script>
+    //로딩페이지
+    $(document).ready(function() {
 
-
+        $("#load").load("load.html", function() {
+            $(".bar").css("width", "100%");
+        });
+    });
+    $(window).load(function () {
+        setTimeout(function() {
+            $("#load").animate({ opacity: 0 }, 1000, function() {
+                $(this).css("display", "none");
+            });
+        }, 2000);
+    })
+    
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
         if (window.scrollY > 50) {
