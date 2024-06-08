@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>loading</title>
     <style>
-        #load {
+        .load_1 {
             width: 100%;
             height: 100%;
             top: 0;
@@ -14,13 +14,16 @@
             background: white;
             z-index: 1000;
         }
+        .load_2 {
+            margin-top: 250px;
+        }
         .step {
             margin: 0 auto;
             padding-top: 5.5rem;
-            width: 500px;
-            height: 500px;
+            width: 300px;
+            height: 300px;
             background: url("img/load_step.png")no-repeat;
-            background-size:2000px;
+            background-size:1200px;
             animation: move .5s steps(4,end) infinite;
             z-index: 999;
         }
@@ -29,32 +32,34 @@
                 background-position-x:0;
             }
             100%{
-                background-position-x:-2000px;
+                background-position-x:-1200px;
             }
         }
         .loading-bar {
             margin: 0 auto;
-            width: 50%;
-            height: 10px;
+            width: 40%;
+            height: 5px;
             border-radius: 50px;
             background-color: #ecf1ef;
             z-index: 1;
         }
         .bar {
             width: 0;
-            height: 10px;
+            height: 5px;
             background-color: #d96f6f;
             transition: width 2s;
         }
     </style>
 </head>
 <body>
-
-<div id="load">
-    <div class="step"></div>
-    <div class="loading-bar">
-        <div class="bar"></div>
+<div class="load_1">
+    <div class="load_2">
+        <div class="step"></div>
+        <div class="loading-bar">
+            <div class="bar"></div>
+        </div>
     </div>
 </div>
+
 </body>
 </html>
