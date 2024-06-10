@@ -27,12 +27,37 @@
             animation: move .5s steps(4,end) infinite;
             z-index: 999;
         }
+        @keyframes move {
+            0%{
+                background-position-x:0;
+            }
+            100%{
+                background-position-x:-1200px;
+            }
+        }
+        .loading-bar {
+            margin: 0 auto;
+            width: 40%;
+            height: 5px;
+            border-radius: 50px;
+            background-color: #ecf1ef;
+            z-index: 1;
+        }
+        .bar {
+            width: 0;
+            height: 5px;
+            background-color: #d96f6f;
+            transition: width 2s;
+        }
     </style>
 </head>
 <body>
 <div class="load_1">
     <div class="load_2">
         <div class="step"></div>
+        <div class="loading-bar">
+            <div class="bar"></div>
+        </div>
     </div>
 </div>
 
