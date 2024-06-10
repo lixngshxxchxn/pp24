@@ -77,7 +77,6 @@
             transition: background-color ease 0.5s;
         }
 
-        /* 각 li의 hover 스타일 */
         .nav-item-1:hover {
             background-color: #F9887A;
         }
@@ -689,7 +688,7 @@
         $('body').addClass('no-scroll');
 
         $("#load").load("load.html", function() {
-            $(".bar").css("width", "100%");
+            $(".step").css("width", "100%");
         });
     });
     $(window).on('load', function () {
@@ -703,6 +702,7 @@
             });
         }, 2000);
     })
+    
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
         if (window.scrollY > 50) {
