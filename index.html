@@ -6,7 +6,7 @@
     <title>우리 동네 놀이터</title>
     <link href="https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+    <link rel="icon" href="img/logo.png">
 
     <style>
 
@@ -20,7 +20,12 @@
             overflow-x: hidden;
             font-family: 'NanumSquareNeo', 'sans-serif';
         }
-
+        body.no-scroll {
+            overflow: hidden;
+        }
+        #load {
+            z-index: 2000;
+        }
         header {
             position: fixed;
             top: 0;
@@ -32,7 +37,7 @@
             padding: 50px 30px;
             background-color: rgba(255, 255, 255, 0.2);
             transition: top 0.5s ease;
-            z-index: 1000;
+            z-index: 900;
         }
 
         header.transparent {
@@ -525,7 +530,7 @@
     </style>
 </head>
 <body>
-
+<div id="load"></div>
 <header id="header">
     <div class="header-content">
         <div class="logo-section">
@@ -676,8 +681,34 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    
 <script>
+    $(document).ready(function() {
+        $('body').addClass('no-scroll');
 
+        $("#load").load("load.html", function() {
+            $(".bar").css("width", "100%");
+        });
+    });
+    $(window).load(function () {
+        setTimeout(function() {
+            $("#load").animate({ opacity: 0 }, 1000, function() {
+                $(this).css("display", "none");
+
+                $('body').removeClass('no-scroll');
+            });
+        }, 2000);
+    })
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('hidden');
+        } else {
+            header.classList.remove('hidden');
+        }
+    });
+    
         document.addEventListener('DOMContentLoaded', () => {
         const imgContainer = document.querySelector('.s1_img');
 
