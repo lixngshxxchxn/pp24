@@ -679,26 +679,25 @@
     </div>
 </footer>
     
-<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-<script type="text/javascript">
-     var $jQ = jQuery.noConfilict();
-    
-    $jQ(document).ready(function() {
-        $jQ('body').addClass('no-scroll');
+<script>
+    $(document).ready(function() {
+        $('body').addClass('no-scroll');
 
-        $jQ("#load").load("load.html", function() {
+        $("#load").load("load.html", function() {
             $(".bar").css("width", "100%");
         });
     });
-    $jQ(window).load(function () {
+    $(window).on('load', function () {
         setTimeout(function() {
-            $jQ("#load").animate({ opacity: 0 }, 1000, function() {
-                $jQ(this).css("display", "none");
+            $("#load").animate({ opacity: 0 }, 1000, function() {
+                $(this).css("display", "none");
 
-                $jQ('body').removeClass('no-scroll');
+                $('body').removeClass('no-scroll');
+
+                $('.diary-img').draggable({ containment: '#section7' });
             });
         }, 2000);
     })
