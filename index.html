@@ -699,9 +699,16 @@
                 $('body').removeClass('no-scroll');
 
                 $('.diary-img').draggable({ containment: '#section7' });
+
+                // 기존의 document.addEventListener('DOMContentLoaded', ...) 스크립트 내용 추가
+                const imgContainer = document.querySelector('.s1_img');
+
+                setTimeout(() => {
+                    imgContainer.classList.add('show');
+                }, 1000);
             });
-        }, 1000);
-    })
+        }, 2000);
+    });
     
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
@@ -712,13 +719,13 @@
         }
     });
     
-        document.addEventListener('DOMContentLoaded', () => {
-        const imgContainer = document.querySelector('.s1_img');
+    //     document.addEventListener('DOMContentLoaded', () => {
+    //     const imgContainer = document.querySelector('.s1_img');
 
-        setTimeout(() => {
-        imgContainer.classList.add('show');
-    }, 1000);
-    });
+    //     setTimeout(() => {
+    //     imgContainer.classList.add('show');
+    // }, 1000);
+    // });
 
         window.addEventListener('scroll', () => {
         const header = document.getElementById('header');
