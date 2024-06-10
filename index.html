@@ -682,16 +682,22 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        $("#load").load("load.html", function() {
 
+<script>
+
+    $(document).ready(function() {
+        $('body').addClass('no-scroll');
+
+        $("#load").load("load.html", function() {
+            $(".bar").css("width", "100%");
         });
     });
     $(window).on('load', function () {
         setTimeout(function() {
             $("#load").animate({ opacity: 0 }, 1000, function() {
                 $(this).css("display", "none");
+
+                $('body').removeClass('no-scroll');
 
                 $('.diary-img').draggable({ containment: '#section7' });
             });
