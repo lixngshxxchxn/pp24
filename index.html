@@ -683,20 +683,22 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-<script>
-    $(document).ready(function() {
-        $('body').addClass('no-scroll');
+<script type="text/javascript">
+     var $jQ = jQuery.noConfilict();
+    
+    $jQ(document).ready(function() {
+        $jQ('body').addClass('no-scroll');
 
-        $("#load").load("load.html", function() {
+        $jQ("#load").load("load.html", function() {
             $(".bar").css("width", "100%");
         });
     });
-    $(window).load(function () {
+    $jQ(window).load(function () {
         setTimeout(function() {
-            $("#load").animate({ opacity: 0 }, 1000, function() {
-                $(this).css("display", "none");
+            $jQ("#load").animate({ opacity: 0 }, 1000, function() {
+                $jQ(this).css("display", "none");
 
-                $('body').removeClass('no-scroll');
+                $jQ('body').removeClass('no-scroll');
             });
         }, 2000);
     })
